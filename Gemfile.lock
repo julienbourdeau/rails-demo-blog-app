@@ -1,3 +1,8 @@
+PATH
+  remote: ../debugbar_rb
+  specs:
+    debugbar_rb (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,8 +84,6 @@ GEM
     base64 (0.2.0)
     bigdecimal (3.1.4)
     bindex (0.8.1)
-    bootsnap (1.17.0)
-      msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.39.2)
       addressable
@@ -103,6 +106,8 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
+    faker (3.2.2)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -130,7 +135,6 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.20.0)
-    msgpack (1.7.2)
     mutex_m (0.2.0)
     mysql2 (0.5.5)
     net-imap (0.4.4)
@@ -192,6 +196,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
+    rainbow (3.1.1)
     rake (13.1.0)
     rdoc (6.6.0)
       psych (>= 4.0.0)
@@ -247,15 +252,17 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap
   capybara
   cssbundling-rails
   debug
+  debugbar_rb!
+  faker
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
   puma (>= 5.0)
   rails (~> 7.1.1)
+  rainbow
   redis (>= 4.0.1)
   selenium-webdriver
   sprockets-rails

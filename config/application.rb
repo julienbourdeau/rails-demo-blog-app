@@ -2,6 +2,10 @@ require_relative "boot"
 
 require "rails/all"
 
+require_relative '../lib/middleware/request_metrics'
+require_relative '../lib/subscriber/dev_tools'
+require_relative '../app/support/dev_tools'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -23,5 +27,10 @@ module DemoApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.middleware.insert_after ActionDispatch::RequestId, RequestMetrics
+
+    config.active_record.query_log_tags_enabled = true
+
   end
 end

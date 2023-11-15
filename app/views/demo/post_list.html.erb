@@ -1,0 +1,26 @@
+<table class="table table-hover table-striped">
+  <thead>
+    <tr class="table-secondary">
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Published on</th>
+      <th scope="col">Reactions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @post.each do |p| %>
+    <tr>
+      <th scope="row"><%= p.id %></th>
+      <td>
+        <strong><%= p.title %></strong>
+        <br> by <% a = p.authors.map(&:full_name) %><%= a.first %>
+        <% if a.size > 1 %>and <%= a.size - 1  %> others<% end %>
+      </td>
+      <td><%= p.published_at.to_date %></td>
+      <td><%= p.reactions.count %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
