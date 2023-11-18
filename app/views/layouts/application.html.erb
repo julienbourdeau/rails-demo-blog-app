@@ -34,10 +34,10 @@
       <%= yield %>
 
 
-      <% acc = DevTools::Acc.dump %>
+      <% acc = DebugbarRb::Acc.dump %>
 
 
-      <%= DevTools::Acc.to_json %>
+      <%= DebugbarRb::Acc.to_json %>
 
       <table class="mt-5 table table-hover">
         <thead>
@@ -60,7 +60,7 @@
           </td>
         </tr>
 
-        <tr>
+        <tr class="table-success">
           <td>
             Models
           </td>
