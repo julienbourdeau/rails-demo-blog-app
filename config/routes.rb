@@ -8,5 +8,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get 'post_list' => "demo#post_list"
+  get 'post-list' => "demo#post_list", as: 'post_list'
+  get 'random' => "demo#random_post", as: 'random_post'
+  get 'post/:id' => "demo#post", as: 'post'
+  get 'jobs' => "demo#jobs", as: 'jobs'
+
+  constraints format: :json do
+    scope path: :api do
+      get "jobs" => "api#jobs"
+      get "add_reaction" => "api#add_reaction"
+    end
+  end
+
+  mount DebugbarRb::Engine => "/_debugbar"
 end

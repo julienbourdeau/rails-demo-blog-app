@@ -9,11 +9,13 @@
   </thead>
   <tbody>
 
-  <% @post.each do |p| %>
+  <% @posts.each do |p| %>
     <tr>
       <th scope="row"><%= p.id %></th>
       <td>
-        <strong><%= p.title %></strong>
+        <a href="<%= post_url(p.id) %>">
+          <strong><%= p.title %></strong>
+        </a>
         <br> by <% a = p.authors.map(&:full_name) %><%= a.first %>
         <% if a.size > 1 %>and <%= a.size - 1  %> others<% end %>
       </td>

@@ -1,0 +1,39 @@
+<div class="d-grid gap-5">
+
+  <h1>
+    <%= @post.title %>
+    <span class="text-muted">(#<%= @post.id %>)</span>
+  </h1>
+
+  <div>
+    <%=raw @post.content_html %>
+  </div>
+
+  <pre>
+    <%= @post.content %>
+  </pre>
+
+  <div class="d-flex gap-5">
+    <button type="button" onclick="fetch('/api/add_reaction?name=up&post_id=<%= @post.id %>')" class="btn btn-primary position-relative">
+      Like 👍
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
+        <%= @post.reactions.select { _1.name == 'up' }.count %>
+      </span>
+    </button>
+
+    <button type="button" onclick="fetch('/api/add_reaction?name=down&post_id=<%= @post.id %>')" class="btn btn-danger position-relative">
+      Nope 👎
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
+        <%= @post.reactions.select { _1.name == 'down' }.count %>
+      </span>
+    </button>
+
+    <button type="button" onclick="fetch('/api/add_reaction?name=star&post_id=<%= @post.id %>')" class="btn btn-success position-relative">
+      Awesome 🤩
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
+        <%= @post.reactions.select { _1.name == 'star' }.count %>
+      </span>
+    </button>
+  </div>
+
+</div>

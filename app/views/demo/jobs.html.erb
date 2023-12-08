@@ -1,0 +1,29 @@
+<table class="table table-hover table-striped">
+  <thead>
+  <tr class="table-secondary">
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Published on</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @posts.each do |p| %>
+    <tr>
+      <th scope="row"><%= p.id %></th>
+      <td>
+        <a href="<%= post_url(p.id) %>">
+          <strong><%= p.title %></strong>
+        </a>
+      </td>
+      <td><%= p.published_at.to_date %></td>
+      <td>
+        <button class="btn btn-sm btn-outline-secondary" onclick="fetch('/api/jobs?name=send_email&post_id=<%= p.id %>')">Send email</button>
+        <button class="btn btn-sm btn-outline-primary" onclick="fetch('/api/jobs?name=refresh&post_id=<%= p.id %>')">Refresh</button>
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>

@@ -5,6 +5,8 @@ class InitTables < ActiveRecord::Migration[7.1]
       t.text :content
       t.datetime :published_at
       t.timestamps
+
+      t.index :published_at
     end
 
     create_table :authors do |t|

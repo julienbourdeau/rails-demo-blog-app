@@ -8,13 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-$now = Time.now.freeze
+@now = Time.now.freeze
 
 def create(model_const, count, &block)
   x = Array.new(count).map do |n|
     attr = block.call n
-    attr[:updated_at] = $now
-    attr[:created_at] = $now
+    attr[:updated_at] = @now
+    attr[:created_at] = @now
     attr
   end
   model_const.insert_all x

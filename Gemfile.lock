@@ -2,6 +2,7 @@ PATH
   remote: ../debugbar_rb
   specs:
     debugbar_rb (0.1.0)
+      rails
 
 GEM
   remote: https://rubygems.org/
@@ -200,6 +201,7 @@ GEM
     rake (13.1.0)
     rdoc (6.6.0)
       psych (>= 4.0.0)
+    redcarpet (3.6.0)
     redis (5.0.8)
       redis-client (>= 0.17.0)
     redis-client (0.18.0)
@@ -263,6 +265,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.1.1)
   rainbow
+  redcarpet
   redis (>= 4.0.1)
   selenium-webdriver
   sprockets-rails

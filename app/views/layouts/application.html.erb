@@ -6,8 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="stylesheet" href="/_debugbar/assets/style">
   </head>
 
   <body>
@@ -21,7 +24,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/post_list">Post List</a>
+                <a class="nav-link active" aria-current="page" href="<%= post_list_path %>">Post List</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="<%= random_post_path %>">Random</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="<%= jobs_path %>">Jobs</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -33,57 +42,15 @@
 
       <%= yield %>
 
-
-      <% acc = DebugbarRb::Acc.dump %>
-
-
-      <%= DebugbarRb::Acc.to_json %>
-
-      <table class="mt-5 table table-hover">
-        <thead>
-        <tr class="table-dark">
-          <th scope="col">Type</th>
-          <th scope="col">Description (ID: <%= acc[:id] %>)</th>
-        </tr>
-        </thead>
-
-        <tbody>
-
-        <tr class="table-primary">
-          <td>
-            Summary
-          </td>
-          <td>
-            Models: <%= acc[:models].values.sum %>
-            <br>
-            Queries: <%= acc[:queries].size %> (<%= acc[:queries].map{ _1[:duration]}.sum.round(1) %>ms)
-          </td>
-        </tr>
-
-        <tr class="table-success">
-          <td>
-            Models
-          </td>
-          <td>
-            <% acc[:models].each do |m, c| %>
-              <%= m %>: <strong><%= c %></strong> <br>
-            <% end %>
-          </td>
-        </tr>
-
-        <% acc[:queries].each do |q| %>
-          <tr>
-            <td>SQL</td>
-            <td>
-              <strong><%= q[:name] %></strong> <br>
-              <%= q[:sql] %> <br>
-              <small> ↳ <%= q[:source].join(" ") %></small>
-            </td>
-          </tr>
-        <% end %>
-
-        </tbody>
-      </table>
     </div>
+
+    <div id="__debugbar"></div>
+<!--    <script type="text/javascript" charset="utf-8">-->
+<!--      // const mountPoint = document.createElement("div");-->
+<!--      const container = document.getElementById("__debugbar");-->
+<!--      container.attachShadow({ mode: "open" })-->
+<!--    </script>-->
+    <script defer type="text/javascript" src="/_debugbar/assets/script"></script>
+
   </body>
 </html>

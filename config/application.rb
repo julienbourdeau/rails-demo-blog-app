@@ -26,5 +26,7 @@ module DemoApp
 
     config.active_record.query_log_tags_enabled = true
 
+    config.active_job.queue_adapter = :inline
+
   end
 end
