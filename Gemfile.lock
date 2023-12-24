@@ -1,7 +1,7 @@
 PATH
-  remote: ../debugbar_rb
+  remote: ../../debugbar/debugbar
   specs:
-    debugbar_rb (0.1.0)
+    debugbar (0.1.0)
       rails
 
 GEM
@@ -257,7 +257,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
-  debugbar_rb!
+  debugbar!
   faker
   importmap-rails
   jbuilder

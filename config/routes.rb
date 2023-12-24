@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  mount DebugbarRb::Engine => "/_debugbar"
+  if defined? Debugbar
+    mount Debugbar::Engine => Debugbar.config.prefix
+  end
 end

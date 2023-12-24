@@ -10,11 +10,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <link rel="stylesheet" href="/_debugbar/assets/style">
   </head>
 
   <body>
     <div class="container">
+      <% Debugbar.msg("Rendering navigation") %>
       <nav class="mt-3 mb-5 navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Rails</a>
@@ -44,13 +44,6 @@
 
     </div>
 
-    <div id="__debugbar"></div>
-<!--    <script type="text/javascript" charset="utf-8">-->
-<!--      // const mountPoint = document.createElement("div");-->
-<!--      const container = document.getElementById("__debugbar");-->
-<!--      container.attachShadow({ mode: "open" })-->
-<!--    </script>-->
-    <script defer type="text/javascript" src="/_debugbar/assets/script"></script>
-
+    <%= debugbar_javascript %>
   </body>
 </html>

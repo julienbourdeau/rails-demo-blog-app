@@ -54,7 +54,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   gem 'faker'
-  gem 'debugbar_rb', path: '../debugbar_rb'
+  gem 'debugbar', path: '../../debugbar/debugbar'
 end
 
 group :development do

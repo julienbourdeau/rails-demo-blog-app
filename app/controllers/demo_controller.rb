@@ -1,5 +1,6 @@
 class DemoController < ApplicationController
   def post_list
+    Debugbar.msg("Entering controller method", {params: params.permit!.to_h})
     @posts = Post.includes(:authors).last(12)
   end
 
