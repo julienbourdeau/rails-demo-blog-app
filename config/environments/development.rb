@@ -74,6 +74,11 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
-  # config.logger= ActiveSupport::Logger.new("log/yolo.log", 5, 10 * 1024 * 1024)
+  # stdout_logger = ActiveSupport::Logger.new(STDOUT)
+  # broadcast = ActiveSupport::BroadcastLogger.new(stdout_logger)
+  # debugbar_logger = Debugbar::SimpleLogger.new(Debugbar.config.min_log_level)
+  # broadcast.broadcast_to(debugbar_logger)
+  # config.logger = broadcast
+
   # config.logger = Debugbar::SimpleLogger.new(Debugbar.config.min_log_level)
 end
