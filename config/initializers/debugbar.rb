@@ -1,3 +1,5 @@
+return unless defined? Debugbar
+
 Debugbar.configure do |config|
   config.min_log_level = ::Logger::Severity::DEBUG
   # config.enabled = false

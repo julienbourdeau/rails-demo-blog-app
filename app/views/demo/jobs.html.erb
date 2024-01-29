@@ -18,10 +18,6 @@
         </a>
       </td>
       <td><%= p.published_at.to_date %></td>
-      <td>
-        <button class="btn btn-sm btn-outline-secondary" onclick="fetch('/api/jobs?name=send_email&post_id=<%= p.id %>')">Send email</button>
-        <button class="btn btn-sm btn-outline-primary" onclick="fetch('/api/jobs?name=refresh&post_id=<%= p.id %>')">Refresh</button>
-      </td>
     </tr>
   <% end %>
 

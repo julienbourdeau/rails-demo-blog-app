@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   get 'post-list' => "demo#post_list", as: 'post_list'
   get 'random' => "demo#random_post", as: 'random_post'
   get 'post/:id' => "demo#post", as: 'post'
-  get 'jobs' => "demo#jobs", as: 'jobs'
+  get 'slow-page' => "demo#slow_page", as: 'slow_page'
 
   constraints format: :json do
     scope path: :api do
       get "jobs" => "api#jobs"
       get "add_reaction" => "api#add_reaction"
+      get "errors" => "api#errors"
     end
   end
 
