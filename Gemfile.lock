@@ -1,4 +1,11 @@
 PATH
+  remote: ../../../Algolia/algoliasearch-rails
+  specs:
+    algoliasearch-rails (2.3.1)
+      algolia (< 3.0.0)
+      json (>= 1.5.1)
+
+PATH
   remote: ../../debugbar/debugbar
   specs:
     debugbar (0.1.0)
@@ -82,6 +89,11 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    algolia (2.3.4)
+      faraday (>= 0.15, < 3)
+      faraday-net_http_persistent (>= 0.15, < 3)
+      multi_json (~> 1.0)
+      net-http-persistent
     base64 (0.2.0)
     bigdecimal (3.1.4)
     bindex (0.8.1)
@@ -109,6 +121,13 @@ GEM
     erubi (1.12.0)
     faker (3.2.2)
       i18n (>= 1.8.11, < 2)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
+    faraday-net_http_persistent (2.1.0)
+      faraday (~> 2.5)
+      net-http-persistent (~> 4.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -124,6 +143,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.7.1)
     loofah (2.21.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -136,8 +156,13 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    multi_json (1.15.0)
     mutex_m (0.2.0)
     mysql2 (0.5.5)
+    net-http (0.4.1)
+      uri
+    net-http-persistent (4.0.2)
+      connection_pool (~> 2.2)
     net-imap (0.4.4)
       date
       net-protocol
@@ -234,6 +259,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (0.13.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -254,6 +280,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  algoliasearch-rails!
   capybara
   cssbundling-rails
   debug
