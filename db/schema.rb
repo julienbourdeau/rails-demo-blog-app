@@ -11,32 +11,33 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_11_08_070906) do
-  create_table "authors", charset: "utf8mb4", force: :cascade do |t|
+  create_table "authors", force: :cascade do |t|
     t.string "full_name", null: false
     t.boolean "distinguished", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "post_authors", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "author_id"
+  create_table "post_authors", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_post_authors_on_author_id"
     t.index ["post_id"], name: "index_post_authors_on_post_id"
   end
 
-  create_table "posts", charset: "utf8mb4", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "content"
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["published_at"], name: "index_posts_on_published_at"
   end
 
-  create_table "reactions", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "post_id"
+  create_table "reactions", force: :cascade do |t|
+    t.integer "post_id"
     t.string "name", null: false
     t.index ["name"], name: "index_reactions_on_name"
     t.index ["post_id"], name: "index_reactions_on_post_id"
