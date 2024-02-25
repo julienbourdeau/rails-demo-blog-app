@@ -61,11 +61,14 @@ def seed(author_count, post_count, post_batch_size = 10)
     authors_attr.flatten!
     reactions_attr.flatten!
 
-    puts Rainbow("Inserting #{authors_attr.count} PostAuthors").blue
+    puts Rainbow(" Inserting #{authors_attr.count} PostAuthors").blue
     PostAuthor.insert_all authors_attr
-    puts Rainbow("Inserting #{reactions_attr.count} Reactions").blue
+    puts Rainbow(" Inserting #{reactions_attr.count} Reactions").blue
     Reaction.insert_all reactions_attr
   end
+
+  puts
+  puts Rainbow("Inserted #{Post.count} posts, #{Author.count} authors and #{Reaction.count} reactions!").green
 end
 
 seed(2000, 5000)
