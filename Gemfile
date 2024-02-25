@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.2.2"
+ruby "3.2.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.1"
@@ -50,13 +50,13 @@ gem "redcarpet"
 gem "rainbow"
 
 
-gem "algoliasearch-rails", path: "../../../Algolia/algoliasearch-rails"
+# gem "algoliasearch-rails", path: "../../../Algolia/algoliasearch-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   gem 'faker'
-  gem 'debugbar', path: '../../debugbar/debugbar'
+  gem 'debugbar', path: '../debugbar'
 end
 
 group :development do
