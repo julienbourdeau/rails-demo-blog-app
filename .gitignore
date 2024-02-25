@@ -7,7 +7,7 @@
 Gemfile.lock
 yarn.lock
 package-lock.json
-db/*.sqlite3
+db/*.sqlite3*
 
 # Ignore bundler config.
 /.bundle

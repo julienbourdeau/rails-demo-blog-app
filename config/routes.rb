@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "demo#welcome"
 
   get 'post-list' => "demo#post_list", as: 'post_list'
   get 'random' => "demo#random_post", as: 'random_post'
   get 'post/:id' => "demo#post", as: 'post'
   get 'slow-page' => "demo#slow_page", as: 'slow_page'
+
+  get 'export-csv' => "live#stream", as: 'export_csv'
 
   constraints format: :json do
     scope path: :api do

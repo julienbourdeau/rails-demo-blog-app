@@ -1,4 +1,12 @@
 class DemoController < ApplicationController
+  def welcome
+    @counts = {
+      posts: Post.count,
+      authors: Author.count,
+      reactions: Reaction.count
+    }
+  end
+
   def post_list
     Debugbar.msg("Entering controller method", {params: params.permit!.to_h})
     @posts = Post.order("RANDOM()").includes(:authors).first(16)
