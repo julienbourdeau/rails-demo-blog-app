@@ -9,6 +9,7 @@ class DemoController < ApplicationController
 
   def post_list
     Debugbar.msg("Entering controller method", {params: params.permit!.to_h})
+
     @posts = Post.order("RANDOM()").includes(:authors).first(16)
     @total = Rails.cache.fetch "nb_total_posts" do
       Post.count
@@ -30,7 +31,7 @@ class DemoController < ApplicationController
   end
 
   def slow_page
-    sleep 5
+    sleep rand(1.5..5.0)
     @post = Post.last
     render "post"
   end

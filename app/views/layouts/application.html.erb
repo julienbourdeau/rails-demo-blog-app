@@ -15,8 +15,6 @@
   <body>
     <div class="container mb-5">
 
-      <% Debugbar.msg("Rendering navigation") %>
-
       <nav class="mt-2 mb-4 navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Rails Demo app</a>
@@ -53,6 +51,7 @@
 
     </div>
 
-    <%= debugbar_javascript %>
+    <%= debugbar_javascript height: 800, mode: "ws", poll: {interval: 10000} %>
+
   </body>
 </html>
