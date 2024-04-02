@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
+    <%= debugbar_head %>
   </head>
 
   <body>
@@ -51,7 +52,7 @@
 
     </div>
 
-    <%= debugbar_javascript height: 800, mode: "ws", poll: {interval: 10000} %>
+    <%= debugbar_body height: 800, mode: "ws", poll: {interval: 10000} %>
 
   </body>
 </html>
